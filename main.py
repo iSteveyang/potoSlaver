@@ -6,7 +6,7 @@ import urllib
 import json
 from http.cookies import SimpleCookie
 
-#cookies
+# cookies
 rcs = {'login': '', 'password': '',
        'JSESSIONID': '', '__lfcc': '1'}
 
@@ -18,11 +18,11 @@ landata = json.loads(r.text)['data']
 lclist = ''
 landcodels = []
 for i in landata:
-    #print(i['landcode'])
+    # print(i['landcode'])
     lclist = lclist + ',' + i['landcode']
     landcodels.append(i['landcode'])
-#print(lclist)
-#print(landcodels)
+# print(lclist)
+# print(landcodels)
 
 count = 0
 n = input("施肥次数：")
@@ -31,31 +31,21 @@ while count < int(n):
     rl = requests.post(
         'http://btsj.1598game.cn/LandCtro/LandFertilize?landcodeList='+lclist, cookies=rcs)
     if json.loads(rl.text)['msg'] == "施肥成功！":
-        #print('OK!')
-        count=count+1
+        # print('OK!')
+        count = count+1
     else:
-        #print(rl.text)
+        # print(rl.text)
         rb = requests.post(
+            # red:6 yellow: 5 black:4
             'http://btsj.1598game.cn/ShopCtro/buyProp?buySize=18&ShopId=4', cookies=rcs)
         print(rb.text)
     # harvest lands
-    if count/10 >=line:
-        line=line+1
+    if count/10 >= line:
+        line = line+1
         for h in landcodels:
             rv = requests.post(
                 'http://btsj.1598game.cn/LandCtro/harvest?landcode='+h, cookies=rcs)
             print(rv.text)
-
-
-
-
-
-
-
-
-
-
-
 
 
 """
