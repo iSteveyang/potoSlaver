@@ -7,7 +7,7 @@ import json
 from http.cookies import SimpleCookie
 
 #cookies
-rcs = {'login': 'hfl813', 'password': '',
+rcs = {'login': '', 'password': '',
        'JSESSIONID': 'CE9197D306B5FCB5361546A98178FB9D', '__lfcc': '1'}
 
 r = requests.post(
