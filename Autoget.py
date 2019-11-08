@@ -7,8 +7,8 @@ import json
 from http.cookies import SimpleCookie
 
 #cookies
-rcs = {'login': '', 'password': '',
-       'JSESSIONID': '4A71405D6E086D34FFD30E51963A0D3B', '__lfcc': '1'}
+rcs = {'login': 'hfl813', 'password': '',
+       'JSESSIONID': 'CE9197D306B5FCB5361546A98178FB9D', '__lfcc': '1'}
 
 r = requests.post(
     'http://btsj.1598game.cn/ShopCtro/InitLand', cookies=rcs)
